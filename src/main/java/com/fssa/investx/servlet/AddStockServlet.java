@@ -1,3 +1,6 @@
+/**
+ * This servlet handles the addition of a new stock to the system.
+ */
 package com.fssa.investx.servlet;
 
 import java.io.IOException;
@@ -17,34 +20,43 @@ import com.fssa.stockmanagementapp.service.StockService;
 @WebServlet("/stock-form")
 public class AddStockServlet extends HttpServlet {
 
-	StockService service = new StockService();
+    // Create an instance of the StockService for stock-related operations.
+    StockService service = new StockService();
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    /**
+     * Handles the HTTP POST request to add a new stock to the system.
+     *
+     * @param request  The HttpServletRequest object containing the stock data.
+     * @param response The HttpServletResponse object for responding to the client.
+     * @throws ServletException If there's an issue during servlet processing.
+     * @throws IOException      If there's an issue with I/O operations.
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		String name = request.getParameter("name");
-		String isin = request.getParameter("isin");
-		String description = request.getParameter("description");
-		double price = Double.parseDouble(request.getParameter("price"));
+        // Retrieve stock data from the request parameters.
+        String name = request.getParameter("name");
+        String isin = request.getParameter("isin");
+        String description = request.getParameter("description");
+        double price = Double.parseDouble(request.getParameter("price"));
 
-		Stock stock = new Stock(name, isin, description, price);
+        // Create a Stock object with the retrieved data.
+        Stock stock = new Stock(name, isin, description, price);
 
-		try {
+        try {
+            // Attempt to add the stock to the system using the StockService.
+            if (service.addStock(stock)) {
+                request.setAttribute("successMsg", "Stock added successfully");
+            } else {
+                request.setAttribute("errorMsg", "Stock not inserted");
+            }
+        } catch (InvalidStockDataException | StockDAOException e) {
+            // Handle exceptions related to invalid stock data or database errors.
+            request.setAttribute("errorMsg", e.getMessage());
+        }
 
-			if (service.addStock(stock)) {
-
-				request.setAttribute("successMsg", "Stock added successfully");
-
-			} else {
-
-				request.setAttribute("errorMsg", "Stock not inserted");
-			}
-		} catch (InvalidStockDataException | StockDAOException e) {
-
-			request.setAttribute("errorMsg", e.getMessage());
-		}
-
-		RequestDispatcher dis = request.getRequestDispatcher("/addstock.jsp");
-		dis.forward(request, response);
-	}
+        // Forward the request and response to the addstock.jsp view.
+        RequestDispatcher dis = request.getRequestDispatcher("/addstock.jsp");
+        dis.forward(request, response);
+    }
 }
