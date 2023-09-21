@@ -1,0 +1,380 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 400px;
+
+}
+
+#header nav a,
+#login {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+#header nav a:hover {
+    color: black;
+    background-color: azure;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+
+}
+
+#sk {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 10px;
+    border: 2px solid gainsboro;
+}
+
+#search a {
+    margin-left: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#search a:hover {
+    color: black;
+    background-color: azure;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+#search {
+    position: relative;
+}
+
+#search i {
+    position: absolute;
+    left: 20px;
+    top: 14px;
+}
+
+#navi {
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+    position: fixed;
+    background-color: white;
+    height: 50px;
+    align-items: center;
+}
+
+#Overview {
+    /* z-index: 10; */
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+    margin-top: 100px;
+}
+
+#frshlogo img {
+    border-radius: 5px;
+}
+
+#graph {
+    width: 750px;
+    margin-left: 70px;
+    padding-bottom: 100px;
+}
+
+.Frac {
+    color: white;
+}
+.Fracs {
+    color: white;
+}
+
+#Shares {
+    display: flex;
+    justify-content: space-around;
+    animation-name: move;
+    animation-duration: 3s;
+    padding: 30px;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(-100px);opacity: 0;
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+}
+/* span{
+  animation-name: change;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  font-size:larger;
+}
+@keyframes change{
+    0%{color: #04AA6D;}
+    100%{color: #f44336;}
+} */
+
+#Fractional {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    height: 400px;
+    padding: 30px;
+    color: whitesmoke;
+    border-radius: 10px;
+}
+
+#Fractional p {
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+
+#Fractional h4 {
+    margin-right: 110px;
+}
+
+/* #Value {
+    height: 70px;
+    width: 300px;
+} */
+
+#Fractional input {
+    border: green solid 2px;
+    border-radius: 6px;
+    width: 290px;
+}
+
+#buy_stocks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn {
+    background-color: rgba(0, 135, 246, 255);
+    border-radius: 10px;
+    color: white;
+    border-color: blue;
+    border-style: none;
+    font-weight: bold;
+    padding: 1.0em;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#Performance img {
+    width: 750px;
+    margin-left: 130px;
+    padding-bottom: 100px;
+}
+
+#Company {
+    width: 750px;
+    margin-left: 120px;
+    border-radius: 5px;
+    border: solid #f2f2f2 1px;
+    box-shadow: -1px -1px 5px #727272;
+    padding: 10px;
+    margin-bottom: 80px;
+}
+
+#Company p {
+    padding: 25px;
+}
+
+#Company h2 {
+    padding: 25px;
+}
+
+#Org {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    border-top: 1px solid rgb(175, 175, 175);
+}
+
+#Emp {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+#CEO {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+#Industry {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+#Buy {
+    width: 671px;
+    margin-left: 120px;
+    border-radius: 5px;
+    border: solid #f2f2f2 1px;
+    box-shadow: -1px -1px 5px #f2f2f2;
+    padding: 50px;
+}
+
+#Buy img {
+    width: 700px;
+}
+
+.buy {
+    width: 61%;
+    background-color: #04AA6D;
+    animation-name: color;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.hold {
+    width: 38%;
+    background-color: #2196F3;
+    animation-name: color2;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.sell {
+    width: 5%;
+    background-color: #f44336;
+    animation-name: color3;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.skills {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    color: white;
+
+}
+
+@keyframes color {
+    0% {
+        background-color: #04AA6D;
+        width: 10%;
+    }
+
+    50% {
+        background-color: #04AA6D;
+        width: 60%;
+    }
+}
+
+@keyframes color2 {
+    0% {
+        background-color: #2196F3;
+        width: 10%;
+    }
+
+    50% {
+        background-color: #2196F3;
+        width: 37%;
+    }
+}
+
+@keyframes color3 {
+    0% {
+        background-color: #f44336;
+        width: 10%;
+    }
+
+    50% {
+        background-color: #f44336;
+        width: 4%;
+    }
+}
+@media only screen and (max-width:400px) {
+    footer{
+        width: 1100px;
+     } 
+    header {
+        width: 1100px;
+    }
+    #Shares {
+        display: flex;
+        flex-direction: column;
+        margin-left: 150px;
+        padding: 10%;
+    }
+    #Fractional {
+        width: 600px;
+    }
+    #graph {
+        margin-left: -30px;
+    }
+    body {
+        font-weight:100 ;
+    }
+}
+.Lgit ive{
+    color: #2196F3;
+}
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1f1f1f;
+    padding-top: 20px;
+    color: whitesmoke;
+
+}
+
+footer p {
+    margin-top: 250px;
+}
+
+.qty_input {
+    height: 40px;
+    width: 100%;
+    padding-left: .5em;
+
+}

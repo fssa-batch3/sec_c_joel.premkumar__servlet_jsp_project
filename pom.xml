@@ -53,7 +53,17 @@
 			<version>8.0.33</version>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>com.fssa.joel</groupId>
+			<artifactId>test-project</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fssa.joelpremkumar</groupId>
+			<artifactId>first-mvn-proj-joel</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+  </dependencies>
 	
   <build>
     <finalName>investx-web</finalName>

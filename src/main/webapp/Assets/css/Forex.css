@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background-color: white;
+    width: 1467px;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 10px;
+}
+
+header a {
+    margin-left: 120px;
+}
+
+#US ul {
+    padding: 0;
+}
+
+#US ul li {
+    margin-left: 15px;
+}
+
+#Add {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 850px;
+    width: 1467px;
+}
+
+#Money {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 510px;
+    /* width: 400px; */
+    padding: 50px;
+    color: black;
+    border-radius: 10px;
+    font-size: medium;
+}
+
+.invest_btn{
+    padding: 1em;
+    background-color: green;
+    color: #f2f2f2;
+    cursor: pointer;
+}
+
+#coin {
+    animation-name: move;
+    animation-duration: 2s;
+    animation-timing-function:linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+#add_money_btn{
+
+    width:100px;
+    background-color: green;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#add_money_btn a {
+    background-color: green;
+    color: #fff;
+   
+}
+
+#Money input {
+    border: goldenrod solid 2px;
+    border-radius: 8px;
+    height: 30px;
+}
+
+#Money h3 {
+    margin-top: -10px;
+}
+
+#Money h4 {
+    margin-top: -5px;
+}
+
+#btn {
+    background-color: rgba(39, 155, 72, 255);
+    border-radius: 15px;
+    color: white;
+    width: 200px;
+    height: 40px;
+    border-color: blue;
+    border-style: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+@media only screen and (max-width:600px) {
+    footer{
+        width: 1500px;
+     } 
+     #Add {
+        display: flex;
+        flex-direction: column;
+     }
+    }
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1f1f1f;
+    padding-top: 20px;
+    color: whitesmoke;
+
+}

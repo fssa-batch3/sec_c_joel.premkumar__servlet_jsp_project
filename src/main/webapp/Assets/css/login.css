@@ -1,0 +1,44 @@
+body {
+    color: white;
+    background-color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.Log {
+    display: flex;
+    justify-content: space-between;
+}
+.lo {
+    height: 710px;
+    width: 600px;
+    border-radius: 2px;
+
+}
+.phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+}
+.otp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 400px;
+}
+.captcha {
+    width: 20px;
+}
+.phonenumber {
+    border: goldenrod solid 2px;
+    border-radius: 8px;
+    height: 30px;
+    width: 200px;
+}
+.btn {
+    background-color: rgba(42,57,100,255);
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+
+}
