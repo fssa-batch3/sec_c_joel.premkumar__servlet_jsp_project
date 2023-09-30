@@ -19,7 +19,7 @@
 				alt="Logo Comes here" height="45px">
 			</a>
 			<nav>
-				<a href="">US STOCKS</a> <a href="./FD.html">Fixed Deposit</a> <a
+				<a href="">US STOCKS</a> <a href="#">Fixed Deposit</a> <a
 					href="#">Customer Service</a>
 			</nav>
 		</div>

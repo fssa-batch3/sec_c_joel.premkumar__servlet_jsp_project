@@ -7,7 +7,7 @@ String email = (String) session.getAttribute("email");
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>InvestX</title>
 <link rel="stylesheet" href="Assets/css/style.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -18,8 +18,8 @@ String email = (String) session.getAttribute("email");
 	<header>
 
 		<div id="header" class="Title">
-			<img src="Assets/images/InvestX New.png" alt="Logo Comes here"
-				height="45px">
+		<a href="index.jsp">	<img src="Assets/images/InvestX New.png" alt="Logo Comes here"
+				height="45px"> </a>
 			<nav>
 				<a href="Explore.jsp">Explore</a> <a href="#">Feature</a> <a
 					href="#">Customer Service</a>
