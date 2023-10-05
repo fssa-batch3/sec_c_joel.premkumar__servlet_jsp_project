@@ -7,7 +7,7 @@ String email = (String) session.getAttribute("email");
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>InvestX</title>
 <link rel="stylesheet" href="Assets/css/style.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -22,8 +22,9 @@ String email = (String) session.getAttribute("email");
 				alt="Logo Comes here" height="45px">
 			</a>
 			<nav>
-				<a href="Explore.jsp">Explore</a> <a href="#">Feature</a> <a
-					href="#">Customer Service</a>
+				<b><a href="Explore.jsp">Explore</a></b> 
+				<!--  <a href="#">Feature</a> 
+				<a href="#">Customer Service</a> -->
 
 			</nav>
 		</div>
@@ -215,7 +216,7 @@ String email = (String) session.getAttribute("email");
 			    	},
 			    	{
 			    	    company_name: "Netflix Inc.",
-			    	    company_image: "/Assets/images/NFLX@2x.png",
+			    	    company_image: "/Assets/images/NFLX@2x.webp",
 			    	    nick_name: "NFLX"
 			    	},
 			    	{
@@ -275,7 +276,7 @@ String email = (String) session.getAttribute("email");
 			    	},
 			    	{
 			    	    company_name: "Airbnb",
-			    	    company_image: "/Assets/images/ABNB@2x.png",
+			    	    company_image: "/Assets/images/ABNB@2x.avif",
 			    	    nick_name: "ABNB"
 			    	},
 			    	{
@@ -293,27 +294,6 @@ String email = (String) session.getAttribute("email");
 			    	    company_image: "/Assets/images/PEP@2x.webp",
 			    	    nick_name: "PEP"
 			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			        // Add more objects from your JSON data here
 			    ];
 
 			    // Filter results based on the query

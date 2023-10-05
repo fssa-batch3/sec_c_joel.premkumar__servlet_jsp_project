@@ -69,17 +69,6 @@
 </style>
 		</head>
 		<body>
-			<!-- Your existing code here -->
-
-			<div id="search">
-				<input type="search" id="sk" placeholder="Search Stocks, MF, etc.."
-					oninput="showSearchResults(this.value)"> <i
-					class="fas fa-search"></i>
-				<div id="search-results" class="search_bar_div"></div>
-				<!-- This is the scrollable search results div -->
-			</div>
-
-			<!-- Your remaining code here -->
 
 			<!-- Add the following JavaScript to show/hide search results -->
 			<script>
@@ -94,7 +83,7 @@
 
 			    // You can fetch and populate search results here (replace this with your actual data fetching logic)
 			    // For demonstration, let's use the provided JSON data
-			    const searchResults = [
+			     const searchResults = [
 			    	{
 			    	    company_name: "Apple",
 			    	    company_image: "/Assets/images/AAPL@2x.jpg",
@@ -195,7 +184,7 @@
 			    	},
 			    	{
 			    	    company_name: "Netflix Inc.",
-			    	    company_image: "/Assets/images/NFLX@2x.png",
+			    	    company_image: "/Assets/images/NFLX@2x.webp",
 			    	    nick_name: "NFLX"
 			    	},
 			    	{
@@ -255,7 +244,7 @@
 			    	},
 			    	{
 			    	    company_name: "Airbnb",
-			    	    company_image: "/Assets/images/ABNB@2x.png",
+			    	    company_image: "/Assets/images/ABNB@2x.avif",
 			    	    nick_name: "ABNB"
 			    	},
 			    	{
@@ -273,27 +262,6 @@
 			    	    company_image: "/Assets/images/PEP@2x.webp",
 			    	    nick_name: "PEP"
 			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			        // Add more objects from your JSON data here
 			    ];
 
 			    // Filter results based on the query
@@ -347,12 +315,19 @@
                 <a href="#">Customer Service</a>
             </nav>
         </div>
-
-        <div id="search">
+		
+		<div id="search">
+				<input type="search" id="sk" placeholder="Search Stocks, MF, etc.."
+					oninput="showSearchResults(this.value)"> <i
+					class="fas fa-search"></i>
+				<div id="search-results" class="search_bar_div"></div>
+				<!-- This is the scrollable search results div -->
+			</div>
+        <!--  <div id="search">
             <i class="fas fa-search"></i>
             <input type="search" id="sk" placeholder=" Search Stocks, MF, etc..">
             <!-- <a id="login" href="/Pages/indexx.html">login</a> -->
-        </div>
+        </div>-->
 
     </header>
     <!-- Navigation -->

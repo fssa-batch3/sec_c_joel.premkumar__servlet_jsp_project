@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Explore US Stocks</title>
 <link rel="stylesheet" href="Assets/css/explore.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -19,8 +19,10 @@
 				alt="Logo Comes here" height="45px">
 			</a>
 			<nav>
-				<a href="">US STOCKS</a> <a href="#">Fixed Deposit</a> <a
-					href="#">Customer Service</a>
+				<b><a href="#">US Stocks</a>
+				<a href="index.jsp">Back to Home</a>
+				 </b>
+				<!--<ahref="#">Customer Service</a>-->
 			</nav>
 		</div>
 
@@ -111,7 +113,7 @@
 
 			    // You can fetch and populate search results here (replace this with your actual data fetching logic)
 			    // For demonstration, let's use the provided JSON data
-			    const searchResults = [
+const searchResults = [
 			    	{
 			    	    company_name: "Apple",
 			    	    company_image: "/Assets/images/AAPL@2x.jpg",
@@ -212,7 +214,7 @@
 			    	},
 			    	{
 			    	    company_name: "Netflix Inc.",
-			    	    company_image: "/Assets/images/NFLX@2x.png",
+			    	    company_image: "/Assets/images/NFLX@2x.webp",
 			    	    nick_name: "NFLX"
 			    	},
 			    	{
@@ -272,7 +274,7 @@
 			    	},
 			    	{
 			    	    company_name: "Airbnb",
-			    	    company_image: "/Assets/images/ABNB@2x.png",
+			    	    company_image: "/Assets/images/ABNB@2x.avif",
 			    	    nick_name: "ABNB"
 			    	},
 			    	{
@@ -290,28 +292,8 @@
 			    	    company_image: "/Assets/images/PEP@2x.webp",
 			    	    nick_name: "PEP"
 			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			    	{
-			    	    company_name: "Salesforce Inc",
-			    	    company_image: "/Assets/images/CRM@2x.png",
-			    	    nick_name: "CRM"
-			    	},
-			        // Add more objects from your JSON data here
 			    ];
+
 
 			    // Filter results based on the query
 			    const filteredResults = searchResults.filter(result => {
