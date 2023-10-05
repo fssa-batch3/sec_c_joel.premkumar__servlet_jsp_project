@@ -24,11 +24,334 @@
 			</nav>
 		</div>
 
-		<div id="search">
+		<!--<div id="search">
 
 			<input type="search" id="sk" placeholder=" Search Stocks, MF, etc..">
 			<i class="fas fa-search"></i> <a id="login" href="#"></a>
-		</div>
+		</div>-->
+<style>
+#search-results {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	max-height: 200px; /* Set the max height for scrollability */
+	overflow-y: auto; /* Enable vertical scrolling */
+	border: 1px solid #ccc;
+	background-color: #fff;
+	width: 240px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	/* Initially hide the results div */
+}
+
+/* Style for WebKit-based browsers (Chrome, Safari) */
+#search-results::-webkit-scrollbar {
+	width: 12px;
+}
+
+#search-results::-webkit-scrollbar-thumb {
+	border-radius: 0.5rem;
+	background-color: #0004;
+}
+
+/* Style for Firefox and other browsers that support scrollbar-width and scrollbar-color */
+#search-results {
+	scrollbar-width: thin;
+	scrollbar-color: #0004 transparent;
+}
+
+.search_result {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.search_result img {
+	width: 40px;
+	margin-right: 10px;
+	border-radius: 75%;
+}
+
+.search-result-item {
+	padding: 5px;
+	cursor: pointer;
+}
+
+.search-result-item:hover {
+	background-color: #f2f2f2;
+}
+</style>
+		</head>
+		<body>
+			<!-- Your existing code here -->
+
+			<div id="search">
+				<input type="search" id="sk" placeholder="Search Stocks, MF, etc.."
+					oninput="showSearchResults(this.value)"> <i
+					class="fas fa-search"></i>
+				<div id="search-results" class="search_bar_div"></div>
+				<!-- This is the scrollable search results div -->
+			</div>
+
+			<!-- Your remaining code here -->
+
+			<!-- Add the following JavaScript to show/hide search results -->
+			<script>
+			function showSearchResults(query) {
+			    const searchResultsDiv = document.getElementById("search-results");
+			    searchResultsDiv.innerHTML = ""; // Clear previous results
+
+			    if (query.trim() === "") {
+			        searchResultsDiv.style.display = "none"; // Hide the results if the query is empty
+			        return;
+			    }
+
+			    // You can fetch and populate search results here (replace this with your actual data fetching logic)
+			    // For demonstration, let's use the provided JSON data
+			    const searchResults = [
+			    	{
+			    	    company_name: "Apple",
+			    	    company_image: "/Assets/images/AAPL@2x.jpg",
+			    	    nick_name: "AMZN"
+			    	},
+
+			    	{
+			    	    company_name: "Adobe",
+			    	    company_image: "/Assets/images/ADBE@2x.jpg",
+			    	    nick_name: "ADBE"
+			    	},
+
+			    	{
+			    	    company_name: "Amazon",
+			    	    company_image: "/Assets/images/AMZN@2x.jpg",
+			    	    nick_name: "AMZN"
+			    	},
+
+			    	{
+			    	    company_name: "Google",
+			    	    company_image: "/Assets/images/GOOGL@2x.jpg",
+			    	    nick_name: "GOOGL"
+			    	},
+
+			    	{
+			    	    company_name: "Freshworks",
+			    	    company_image: "/Assets/images/FRSH@2x.jpg",
+			    	    nick_name: "FRSH"
+			    	},
+
+			    	{
+			    	    company_name: "Microsoft",
+			    	    company_image: "/Assets/images/MSFT@2x.jpg",
+			    	    nick_name: "MSFT"
+			    	},
+
+			    	{
+			    	    company_name: "Qualcom",
+			    	    company_image: "/Assets/images/QQQ@2x.jpg",
+			    	    nick_name: "QCOM"
+			    	},
+
+			    	{
+			    	    company_name: "Tesla",
+			    	    company_image: "/Assets/images/TSLA@2x.jpg",
+			    	    nick_name: "TSLA"
+			    	},
+
+			    	{
+			    	    company_name: "Texas",
+			    	    company_image: "/Assets/images/TXN@2x.jpg",
+			    	    nick_name: "TXN"
+			    	},
+			    	{
+			    	    company_name: "Shopify",
+			    	    company_image: "/Assets/images/SHOP@2x.jpg",
+			    	    nick_name: "SHOP"
+			    	},
+			    	{
+			    	    company_name: "Nvidia",
+			    	    company_image: "/Assets/images/NVDA@2x.jpg",
+			    	    nick_name: "NVDA"
+			    	},
+			    	{
+			    	    company_name: "Facebook",
+			    	    company_image: "/Assets/images/FB@2x.jpg",
+			    	    nick_name: "META"
+			    	},
+			    	{
+			    	    company_name: "Oracle",
+			    	    company_image: "/Assets/images/ORCL@2x.webp",
+			    	    nick_name: "ORCL"
+			    	},
+			    	{
+			    	    company_name: "Cisco Systems",
+			    	    company_image: "/Assets/images/CSCO@2x.png",
+			    	    nick_name: "CSCO"
+			    	},
+			    	{
+			    	    company_name: "Salesforce Inc",
+			    	    company_image: "/Assets/images/CRM@2x.png",
+			    	    nick_name: "CRM"
+			    	},
+			    	{
+			    	    company_name: "Motorola Solutions",
+			    	    company_image: "/Assets/images/MSI@2x.webp",
+			    	    nick_name: "MSI"
+			    	},
+			    	{
+			    	    company_name: "IBM Corp.",
+			    	    company_image: "/Assets/images/IBM@2x.png",
+			    	    nick_name: "IBM"
+			    	},
+			    	{
+			    	    company_name: "Flextronics",
+			    	    company_image: "/Assets/images/FLEX@2x.png",
+			    	    nick_name: "FLEX"
+			    	},
+			    	{
+			    	    company_name: "Netflix Inc.",
+			    	    company_image: "/Assets/images/NFLX@2x.png",
+			    	    nick_name: "NFLX"
+			    	},
+			    	{
+			    	    company_name: "Intel Corporation",
+			    	    company_image: "/Assets/images/INTC@2x.png",
+			    	    nick_name: "INTC"
+			    	},
+			    	{
+			    	    company_name: "Dell Technologies Inc.",
+			    	    company_image: "/Assets/images/DELL@2x.png",
+			    	    nick_name: "DELL"
+			    	},
+			    	{
+			    	    company_name: "The Walt Disney Company",
+			    	    company_image: "/Assets/images/DIS@2x.png",
+			    	    nick_name: "DIS"
+			    	},
+			    	{
+			    	    company_name: "Starbucks Corporation",
+			    	    company_image: "/Assets/images/SBUX@2x.png",
+			    	    nick_name: "SBUX"
+			    	},
+			    	{
+			    	    company_name: "Walmart Inc.",
+			    	    company_image: "/Assets/images/WMT@2x.png",
+			    	    nick_name: "WMT"
+			    	},
+			    	{
+			    	    company_name: "Uber Technologies Inc.",
+			    	    company_image: "/Assets/images/UBER@2x.png",
+			    	    nick_name: "UBER"
+			    	},
+			    	{
+			    	    company_name: "Ford Motor Co.",
+			    	    company_image: "/Assets/images/F@2x.png",
+			    	    nick_name: "F"
+			    	},
+			    	{
+			    	    company_name: "American Express Co.",
+			    	    company_image: "/Assets/images/AXP@2x.png",
+			    	    nick_name: "AXP"
+			    	},
+			    	{
+			    	    company_name: "Visa, Inc.",
+			    	    company_image: "/Assets/images/V@2x.png",
+			    	    nick_name: "V"
+			    	},
+			    	{
+			    	    company_name: "Unity Software",
+			    	    company_image: "/Assets/images/U@2x.png",
+			    	    nick_name: "U"
+			    	},
+			    	{
+			    	    company_name: "Zoom Video Communications Inc",
+			    	    company_image: "/Assets/images/ZM@2x.png",
+			    	    nick_name: "ZM"
+			    	},
+			    	{
+			    	    company_name: "Airbnb",
+			    	    company_image: "/Assets/images/ABNB@2x.png",
+			    	    nick_name: "ABNB"
+			    	},
+			    	{
+			    	    company_name: "Atlassian Corporation Plc",
+			    	    company_image: "/Assets/images/TEAM@2x.webp",
+			    	    nick_name: "TEAM"
+			    	},
+			    	{
+			    	    company_name: "Domino's Pizza, Inc.",
+			    	    company_image: "/Assets/images/DPZ@2x.png",
+			    	    nick_name: "DPZ"
+			    	},
+			    	{
+			    	    company_name: "Pepsico, Inc.",
+			    	    company_image: "/Assets/images/PEP@2x.webp",
+			    	    nick_name: "PEP"
+			    	},
+			    	{
+			    	    company_name: "Salesforce Inc",
+			    	    company_image: "/Assets/images/CRM@2x.png",
+			    	    nick_name: "CRM"
+			    	},
+			    	{
+			    	    company_name: "Salesforce Inc",
+			    	    company_image: "/Assets/images/CRM@2x.png",
+			    	    nick_name: "CRM"
+			    	},
+			    	{
+			    	    company_name: "Salesforce Inc",
+			    	    company_image: "/Assets/images/CRM@2x.png",
+			    	    nick_name: "CRM"
+			    	},
+			    	{
+			    	    company_name: "Salesforce Inc",
+			    	    company_image: "/Assets/images/CRM@2x.png",
+			    	    nick_name: "CRM"
+			    	},
+			        // Add more objects from your JSON data here
+			    ];
+
+			    // Filter results based on the query
+			    const filteredResults = searchResults.filter(result => {
+			        return (
+			            result.company_name.toLowerCase().includes(query.toLowerCase()) ||
+			            result.nick_name.toLowerCase().includes(query.toLowerCase())
+			        );
+			    });
+
+			    // If there are no matching results, display "No match found"
+			    if (filteredResults.length === 0) {
+			        const noMatchItem = document.createElement("div");
+			        noMatchItem.textContent = "No match found";
+			        searchResultsDiv.appendChild(noMatchItem);
+			    } else {
+			        // Iterate through filtered search results and add them to the div
+			        filteredResults.forEach(result => {
+			            const resultItem = document.createElement("a");
+			            resultItem.href = "<%=request.getContextPath()%>/Graph.jsp?name=" + result.company_name; // Replace with the actual URL for the search result
+			            resultItem.className = "search_result";
+
+			            const img = document.createElement("img");
+			            img.src = "<%=request.getContextPath()%>" + result.company_image;
+			            img.alt = result.company_name;
+
+			            const p = document.createElement("p");
+			            p.textContent = result.company_name;
+
+			            resultItem.appendChild(img);
+			            resultItem.appendChild(p);
+
+			            searchResultsDiv.appendChild(resultItem);
+			        });
+			    }
+
+			    searchResultsDiv.style.display = "block"; // Show the results div
+			}
+
+
+    </script>
 
 	</header>
 
@@ -45,7 +368,8 @@
 			value="1000" step="1000" class="range"> <br> <br>
 		<div class="image">
 			<img src="Assets/images/AAPL@2x.jpg" class="row_images selected"
-				id="Apple" alt="apple icon"> <img
+				id="Apple" alt="apple icon"> 
+				<img
 				src="Assets/images/ADBE@2x.jpg" class="row_images" id="Adobe"
 				alt="apple icon"> <img src="Assets/images/AMZN@2x.jpg"
 				class="row_images" id="Amazon" alt="apple icon"> <img

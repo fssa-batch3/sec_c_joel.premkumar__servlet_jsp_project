@@ -48,7 +48,7 @@ Invest & SIP<br>
 
             </form>
             <br>
-            <a id="login" href="/Pages/indexx.html">Login</a>
+            <!-- <a id="login" href="/Pages/indexx.html">Login</a> -->
         </div>
         <div id="otpenter" class="otp">
             <h2> Enter OTP </h2>
@@ -144,7 +144,7 @@ Invest & SIP<br>
 
     })
 
-                // window.location.href="profile.html"
+                 window.location.href="Explore.jsp"
 
             })
         </script>

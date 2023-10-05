@@ -1,207 +1,164 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ page import="com.fssa.stockmanagementapp.model.*"%>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>List Stocks Page</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<style>
-body {
-	background-color: #000; /* Black background */
-	color: #fff; /* White text color */
-	font-family: 'Roboto', sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Stocks Page</title>
+    <!-- Link to Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+    /* ... Your existing styles ... */
 
-.container {
-	background-color: #fff; /* White */
-	border-radius: 10px; /* Increased border radius */
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
-	padding: 20px;
-	margin-top: 30px;
-}
+    /* Adjustments for the main content container */
+    .container {
+        background-color: #fff; /* White Background */
+        color: #333; /* Dark text color */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        padding: 20px;
+        margin-top: 20px;
+    }
 
-h3 {
-	color: #333; /* Dark gray text color for headings */
-}
+    /* Button hover color */
+    .btn-primary:hover {
+        background-color: #00cc66; /* Dark Green on hover */
+    }
 
-.table {
-	background-color: #fff; /* White */
-	margin-top: 20px;
-}
+    /* Form input styles */
+    .form-input {
+        background-color: #f7f7f7; /* Light Gray Background */
+        color: #333; /* Dark text color */
+    }
 
-.thead-dark th {
-	background-color: #000; /* Black header background */
-	color: #fff; /* White text color */
-}
+    /* Table styles */
+    .table th,
+    .table td {
+        border: 1px solid #e2e2e2; /* Light Gray border */
+        padding: 8px;
+    }
 
-.btn-danger {
-	background-color: #FF3333; /* Dark Red */
-	border-color: #FF0000; /* Red */
-}
+    .table th {
+        background-color: #f7f7f7; /* Light Gray Background */
+        color: #333; /* Dark text color */
+    }
 
-.btn-danger:hover {
-	background-color: #FF0000; /* Red on hover */
-	border-color: #CC0000; /* Dark Red on hover */
-}
-
-.form-control {
-	background-color: #fff; /* White */
-	color: #000; /* Black text color */
-}
-
-.header {
-	background-color: #333; /* Dark Gray */
-	color: #fff; /* White text color */
-	padding: 20px;
-	border-radius: 10px 10px 0 0; /* Increased border radius */
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
-}
-
-.header h1 {
-	margin: 0;
-	padding: 0;
-	font-size: 36px;
-}
-
-.search-bar {
-	background-color: #333; /* Dark Gray */
-	padding: 10px;
-	border-radius: 0 0 10px 10px; /* Increased border radius */
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
-}
-
-.search-bar form {
-	display: flex;
-	align-items: center;
-}
-
-.search-bar .form-control {
-	background-color: #fff; /* White */
-	color: #000; /* Black text color */
-	flex-grow: 1;
-	border: none;
-	border-radius: 5px 0 0 5px;
-}
-
-.search-bar .btn-primary {
-	background-color: #000; /* Black button background */
-	border: none;
-	color: #fff; /* White text color */
-	border-radius: 0 5px 5px 0;
-}
-
-.black {
-	color: #000; /* Black text color */
-}
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2; /* Slightly darker Gray for even rows */
+    }
 </style>
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-	rel="stylesheet">
+
 </head>
-<body>
+<body class="bg-gray-100 font-roboto">
 
 
 
-	<div class="header">
-		<h1 class="text-center">Stock Management</h1>
-		<div class="search-bar">
-			<form action="<%=request.getContextPath()%>/ReadByNameServlet"
-				method="post" class="d-flex">
-				<input class="form-control me-2" name="stock_name" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-primary" type="submit">Search</button>
-			</form>
-		</div>
-	</div>
+    <!-- Header Section -->
+<header class="header">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Replace 'your-logo-url.png' with the actual URL of your logo image -->
+       <a href="Profile.jsp"> </a> <img src="Assets/images/InvestX Logo.png" alt="Company Logo" class="w-30 h-12"> </a>
+        <h1 class="text-2xl font-semibold text-white">Stock Management</h1>
+        <div class="search-bar flex">
+            <form action="<%=request.getContextPath()%>/ReadByNameServlet" method="post" class="flex">
+                <input class="form-input bg-white text-gray-800 py-2 px-3 rounded-l-md" name="stock_name" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary rounded-r-md px-4 py-2 bg-green-500 text-white rounded-md hover:bg-blue-600" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</header>
 
-	<%
-	String success = (String) request.getAttribute("successMsg");
-	String error = (String) request.getAttribute("errorMsg");
 
-	if (error != null && !(error.isEmpty())) {
-	%>
+    <!-- Alert Messages -->
+    <div class="container mx-auto mt-4">
+        <%
+        String success = (String) request.getAttribute("successMsg");
+        String error = (String) request.getAttribute("errorMsg");
+        %>
 
-	<h3 class="text-center text-danger mt-2"><%=error%></h3>
+        <%
+        if (error != null && !(error.isEmpty())) {
+        %>
+        <div class="bg-red-500 text-white py-2 px-4 mb-4 rounded-md">
+            <p><%=error%></p>
+        </div>
+        <%
+        }
+        if (success != null && !(success.isEmpty()) && error == null) {
+        %>
+        <div class="bg-green-500 text-white py-2 px-4 mb-4 rounded-md">
+            <p><%=success%></p>
+        </div>
+        <%
+        }
+        %>
+    </div>
+    <%
+		String name = (String) request.getAttribute("name");
+    %>
 
-	<%
-	}
-	if (success != null && !(success.isEmpty()) && error == null) {
-	%>
+    <!-- Main Content Section -->
+    <div class="container mx-auto mt-4 bg-white rounded-md shadow-lg">
+        <h3 class="text-xl font-semibold text-white-800 p-4"><%=name %> Investment Portfolio</h3>
+        <%
+        List<Stock> stockList = (List<Stock>) request.getAttribute("listStocks");
+        %>
+        <%
+        int serialNumber = 1;
+        %>
 
-	<h3 class="text-center text-success mt-2"><%=success%></h3>
-
-	<%
-	}
-	%>
-
-	<div class="container">
-		<h3 class="mb-4">List Stocks</h3>
-		<%
-		List<Stock> stockList = (List<Stock>) request.getAttribute("listStocks");
-		%>
-		<%
-		int serialNumber = 1;
-		%>
-
-		<%
-		if (stockList != null && !stockList.isEmpty() && stockList.get(0).getId() != 0) {
-		%>
-		<table class="table table-bordered">
-			<thead class="thead-dark">
-				<tr>
-					<th>Serial Number</th>
-					<th>Name</th>
-					<th>ISIN</th>
-					<th>Description</th>
-					<th>Price</th>
-					<th>Create Date Time</th>
-					<th>Expire Date Time</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%
-				for (Stock stock : stockList) {
-				%>
-				<tr>
-					<td><%=serialNumber%></td>
-					<td><%=stock.getName()%></td>
-					<td><%=stock.getIsin()%></td>
-					<td><%=stock.getDescription()%></td>
-					<td>$<%=stock.getPrice()%></td>
-					<td><%=stock.getCreationDateTime()%></td>
-					<td><%=stock.getExpireDateTime()%></td>
-					<td>
-						<form action="<%=request.getContextPath()%>/DeleteStockServlet"
-							method="post">
-							<input type="hidden" name="stockId" value="<%=stock.getId()%>">
-							<button type="submit" class="btn btn-danger">Delete</button>
-						</form>
-					</td>
-				</tr>
-				<%
-				serialNumber++;
-				%>
-				<%
-				}
-				%>
-			</tbody>
-		</table>
-		<%
-		} else {
-		%>
-		<p class="black">No stocks found</p>
-		<%
-		}
-		%>
-	</div>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <%
+        if (stockList != null && !stockList.isEmpty() && stockList.get(0).getId() != 0) {
+        %>
+        <table class="table-auto w-full bg-white mt-4">
+            <thead class="bg-black text-white">
+                <tr>
+                    <th class="px-4 py-2">Sl.No</th>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">ISIN</th>
+                    <th class="px-4 py-2">Description</th>
+                    <th class="px-4 py-2">Price</th>
+                    <th class="px-4 py-2">Last updated</th>
+                    <th class="px-4 py-2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                for (Stock stock : stockList) {
+                %>
+                <tr>
+                    <td class="px-4 py-2"><%=serialNumber%></td>
+                    <td class="px-4 py-2"><%=stock.getName()%></td>
+                    <td class="px-4 py-2"><%=stock.getIsin()%></td>
+                    <td class="px-4 py-2"><%=stock.getDescription()%></td>
+                    <td class="px-4 py-2">$<%=stock.getPrice()%></td>
+                    <td class="px-4 py-2"><%=stock.getCreationDateTime()%></td>
+                    <td class="px-4 py-2">
+                        <form action="<%=request.getContextPath()%>/DeleteStockServlet" method="post">
+                            <input type="hidden" name="stockId" value="<%=stock.getId()%>">
+                            <button type="submit" class="btn btn-danger px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <%
+                serialNumber++;
+                %>
+                <%
+                }
+                %>
+            </tbody>
+        </table>
+        <%
+        } else {
+        %>
+        <h2 class="text-white-500 text-center py-4">No stocks found</h2>
+        <%
+        }
+        %>
+    </div>
 </body>
 </html>

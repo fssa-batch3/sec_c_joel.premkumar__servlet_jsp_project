@@ -22,7 +22,6 @@ import com.fssa.stockmanagementapp.service.UserService;
  */
 @WebServlet("/GetUserJson")
 public class GetUserJson extends HttpServlet {
-	private static final long serialVersionUID = 1L;
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();

@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Forex</title>
 <link rel="stylesheet" href="Assets/css/Forex.css">
 </head>
 <body>
 <!-- Header -->
     <header>
-        <a href="index.html">
+        <a href="index.jsp">
 <img src="Assets/images/InvestX Logo.png" alt="Logo Comes here" height="45px">
 </a>
     </header>

@@ -3,6 +3,7 @@ package com.fssa.investx.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,30 +34,37 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("pass");
 		PrintWriter out = response.getWriter();
 		if (email != null || password != null) {
-			
-				try {
-					User currentUser = UserService.getUserByEmail(email);
-					
-					if (currentUser != null && currentUser.getPassword().equals(password)) {
-						HttpSession session = request.getSession();
-						session.setAttribute("email", currentUser.getEmailId());
-			
-						response.sendRedirect("./index.jsp");
-					} else {
-						out.println("Invalid email or password");
-					}
-				} catch ( UserServiceException e) {
-					out.println(e.getMessage());
+
+			try {
+				User currentUser = UserService.getUserByEmail(email);
+
+				if (currentUser != null && currentUser.getPassword().equals(password)) {
+					HttpSession session = request.getSession();
+					session.setAttribute("email", currentUser.getEmailId());
+
+					session.setAttribute("id", currentUser.getId());
+					response.sendRedirect("./Explore.jsp");
+				} else {
+					request.setAttribute("errorMsg", "Invalid email or password");
+					RequestDispatcher rd = request.getRequestDispatcher("./SignupLogin.jsp");
+					rd.forward(request, response);
 				}
-			
+			} catch (UserServiceException e) {
+				request.setAttribute("errorMsg", e.getMessage()+" Try SignUp");
+				RequestDispatcher rd = request.getRequestDispatcher("./SignupLogin.jsp");
+				rd.forward(request, response);
+			}
+
 		} else {
-			out.println("email or password is null");
+			request.setAttribute("errorMsg", "email or password is null");
+			RequestDispatcher rd = request.getRequestDispatcher("./SignupLogin.jsp");
+			rd.forward(request, response);
 		}
 	}
 
@@ -64,10 +72,4 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
-
-}

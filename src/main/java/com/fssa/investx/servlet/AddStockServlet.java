@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.stockmanagementapp.exception.InvalidStockDataException;
 import com.fssa.stockmanagementapp.exception.StockDAOException;
@@ -36,13 +37,20 @@ public class AddStockServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// Retrieve stock data from the request parameters.
+		HttpSession session = request.getSession(false);
+		int userId=(int) session.getAttribute("id");
+
+		System.out.println("dhuhusijss");
+		System.out.println(userId);
 		String name = request.getParameter("name");
 		String isin = request.getParameter("isin");
 		String description = request.getParameter("description");
 		double price = Double.parseDouble(request.getParameter("price"));
+		System.out.println(userId+"data");
 
 		// Create a Stock object with the retrieved data.
 		Stock stock = new Stock();
+		stock.setUserId(userId);
 		stock.setName(name);
 		stock.setIsin(isin);
 		stock.setDescription(description);

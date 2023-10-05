@@ -5,10 +5,10 @@ const company1 = [
 
 {
     company_name: "Apple",
-    company_image: "https://freeimghost.net/images/2023/05/10/AAPL2x.png",
+    company_image: "https://eeimghost.net/images/2023/05/10/AAPL2x.png",
     nick_name: "AAPL",
     todays_price: "$165.33",
-    company_info: "Apple Inc. was founded in 1976 by three prominent visionaries – Steve Jobs, Steve Wozniak and Ronald Wayne. In 1977, the company was named Apple Computer Inc. Renamed Apple Inc. today, the company is an American multinational that provides computer electronics, software services and online services. The company is headquartered in Cupertino, California, and is counted among America's Big Five IT companies. It has more than 154,000 employees and a presence in all major countries of the world. In 2021, Apple inc. was valued at over $2 trillion and is considered the world's most valuable technology company. Currently, Apple Inc. has a P/E ratio of 29.63 and is led by Timothy Cook, who is the CEO. The company's revenue rose from $8 billion in 2004 to $270 billion in 2020. Product-wise, the company made its mark in 1984 by launching Macintosh. Later on, the company unveiled the iMac PCs in 1998. In January 2010, the iPad revolutionised the tablet market and made Apple a household name. Presently, the company’s product portfolio comprises iMacs, Macbooks, iPhones, iPads, Apple Watch and Apple TV among other peripherals and accessories. The company is credited to be the first publicly traded company in America that has crossed the valuation of $1 trillion in 2018. Thereafter, the company’s valuations rose steadily, beating previous records. The valuation was recorded at $2 trillion in August 2021 and $3 trillion in January 2022. Currently Apple Inc has a market cap of $2615.84 Billion. It has a P.E ratio of 27.49. The shares of Apple Inc are trading at $163.77.",
+    company_info: "Ap Inc. was founded in 1976 by three prominent visionaries – Steve Jobs, Steve Wozniak and Ronald Wayne. In 1977, the company was named Apple Computer Inc. Renamed Apple Inc. today, the company is an American multinational that provides computer electronics, software services and online services. The company is headquartered in Cupertino, California, and is counted among America's Big Five IT companies. It has more than 154,000 employees and a presence in all major countries of the world. In 2021, Apple inc. was valued at over $2 trillion and is considered the world's most valuable technology company. Currently, Apple Inc. has a P/E ratio of 29.63 and is led by Timothy Cook, who is the CEO. The company's revenue rose from $8 billion in 2004 to $270 billion in 2020. Product-wise, the company made its mark in 1984 by launching Macintosh. Later on, the company unveiled the iMac PCs in 1998. In January 2010, the iPad revolutionised the tablet market and made Apple a household name. Presently, the company’s product portfolio comprises iMacs, Macbooks, iPhones, iPads, Apple Watch and Apple TV among other peripherals and accessories. The company is credited to be the first publicly traded company in America that has crossed the valuation of $1 trillion in 2018. Thereafter, the company’s valuations rose steadily, beating previous records. The valuation was recorded at $2 trillion in August 2021 and $3 trillion in January 2022. Currently Apple Inc has a market cap of $2615.84 Billion. It has a P.E ratio of 27.49. The shares of Apple Inc are trading at $163.77.",
     organization: "Apple, Inc.",
     employees: "164000",
     ceo: "Mr. Timothy D. Cook",
@@ -203,12 +203,12 @@ let order ;
             .then(function(response){
             	console.log(response);
             	if(response.data==true){
-                	 alert("Added Success", "success");
+                	 alert("Do you want to continue with Payment?", "success");
                 	  window.location.href = "https://cosmofeed.com/vp/6450193e7e7a6800209ec597"
                 
                  }
                  else{
-                	 alert( "failed ", "error");
+                	 alert( "Please login to Buy Stocks ", "error");
                  }
             })
 	
